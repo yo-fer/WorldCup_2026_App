@@ -1,4 +1,4 @@
-package com.example.worldcup2026app
+package com.example.worldcup2026app.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">World Cup 2026 App</string>
+
+    <!--- Errores de red -->
+    <string name="error_connectivity">Error de conectividad. Verifica tu conexión a internet.</string>
+    <string name="error_server">Error del servidor (Código %1$d). Intenta más tarde.</string>
+    <string name="error_unknown">Ocurrió un error inesperado: %1$s</string>
 </resources>

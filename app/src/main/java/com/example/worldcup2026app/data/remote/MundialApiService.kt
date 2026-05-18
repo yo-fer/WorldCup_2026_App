@@ -1,6 +1,7 @@
 package com.example.worldcup2026app.data.remote
 
 
+import com.example.worldcup2026app.core.network.NetworkConstants
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -8,8 +9,8 @@ interface MundialApiService {
     // Endpoint para obtener los equipos
     @GET("teams2026.php")
     suspend fun getTeams(
-        @Query("league") league: String = "1",
-        @Query("season") season: String = "2026"
+        @Query("league") league: String = NetworkConstants.DEFAULT_LEAGUE,
+        @Query("season") season: String = NetworkConstants.DEFAULT_SEASON
     ): ApiWrapper<List<TeamResponseDto>>
 
     @GET("squads.php")

@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MundialDao {
 
-    // --- OPERACIONES DE EQUIPOS ---
+    // operaciones para equipos
 
     @Query("SELECT * FROM teams ORDER BY name ASC")
-    fun getAllTeams(): Flow<List<TeamEntity>> // Retorna un flujo reactivo de la BD
+    fun getAllTeams(): Flow<List<TeamEntity>>
 
     @Query("SELECT * FROM teams WHERE id = :teamId")
     suspend fun getTeamById(teamId: Int): TeamEntity?
@@ -22,7 +22,7 @@ interface MundialDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTeams(teams: List<TeamEntity>)
 
-    // --- OPERACIONES DE JUGADORES ---
+    // operaciones de jugadores
 
     @Query("SELECT * FROM players WHERE teamId = :teamId")
     fun getPlayersForTeam(teamId: Int): Flow<List<PlayerEntity>>

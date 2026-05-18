@@ -2,6 +2,7 @@ package com.example.worldcup2026app.core.di
 
 import android.app.Application
 import androidx.room.Room
+import com.example.worldcup2026app.core.utils.DatabaseConstants
 import com.example.worldcup2026app.data.local.MundialDatabase
 import com.example.worldcup2026app.data.local.dao.MundialDao
 import dagger.Module
@@ -19,7 +20,7 @@ object DatabaseModule {
         return Room.databaseBuilder(
             app,
             MundialDatabase::class.java,
-            "mundial_db"
+            DatabaseConstants.DATABASE_NAME
         ).build()
     }
 

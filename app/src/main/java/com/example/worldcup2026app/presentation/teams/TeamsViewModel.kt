@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.worldcup2026app.core.network.Resource
 import com.example.worldcup2026app.domain.repository.TeamRepository
+import com.example.worldcup2026app.domain.usecase.GetCountdownTickUseCase
 import com.example.worldcup2026app.domain.usecase.GetTeamsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,6 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class TeamsViewModel @Inject constructor(
     private val getTeamsUseCase: GetTeamsUseCase,
+    private val getCountdownTickUseCase: GetCountdownTickUseCase,
     private val repository: TeamRepository
 ) : ViewModel() {
     // estado interno
@@ -28,6 +30,7 @@ class TeamsViewModel @Inject constructor(
     init {
         obserLocalDataBase()
         syncWithApi()
+        startCountdown()
     }
 
     private fun obserLocalDataBase() {
@@ -55,6 +58,15 @@ class TeamsViewModel @Inject constructor(
                     _state.update { it.copy(isLoading = false, error = result.message) }
                 }
                 else -> Unit
+            }
+        }
+    }
+
+    private fun startCountdown() {
+        viewModelScope.launch {
+            getCountdownTickUseCase().collect { currentCountdown ->
+                // Cada segundo, esta función se llama y actualiza el estado
+                _state.update { it.copy(countdown = currentCountdown) }
             }
         }
     }

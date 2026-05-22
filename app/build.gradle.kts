@@ -1,3 +1,5 @@
+import java.util.Properties
+
     plugins {
         alias(libs.plugins.android.application)
         alias(libs.plugins.kotlin.android)
@@ -5,6 +7,13 @@
         alias(libs.plugins.ksp)
         alias(libs.plugins.hilt)
     }
+
+    val properties = Properties()
+    val localPropertiesFile = project.rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        properties.load(localPropertiesFile.inputStream())
+    }
+    val apiSportsKey = properties.getProperty("API_SPORTS_KEY") ?: "NO_API_KEY_FOUND"
 
     android {
         namespace = "com.example.worldcup2026app"
@@ -18,6 +27,8 @@
             versionName = "1.0"
 
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+            buildConfigField("String", "API_SPORTS_KEY", "\"$apiSportsKey\"")
         }
 
         buildTypes {
@@ -39,6 +50,10 @@
 
         buildFeatures {
             compose = true
+        }
+
+        buildFeatures {
+            buildConfig = true
         }
     }
 
@@ -73,7 +88,7 @@
 
         // --- INYECCIÓN DE DEPENDENCIAS (Hilt con KSP) ---
         implementation(libs.hilt.android)
-        ksp(libs.hilt.compiler) // Cambiado kapt por ksp para mantener el proyecto moderno y rápido
+        ksp(libs.hilt.compiler)
         implementation(libs.hilt.navigation)
 
         // --- IMÁGENES ASÍNCRONAS (Coil) ---

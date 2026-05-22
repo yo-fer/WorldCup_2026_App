@@ -7,6 +7,7 @@ import com.example.worldcup2026app.data.repository.TeamRepositoryImpl
 import com.example.worldcup2026app.domain.repository.PlayerRepository
 import com.example.worldcup2026app.domain.repository.TeamRepository
 import com.example.worldcup2026app.domain.usecase.GetCountdownTickUseCase
+import com.example.worldcup2026app.domain.usecase.GetTeamSquadUseCase
 import com.example.worldcup2026app.domain.usecase.GetTeamsUseCase
 import dagger.Module
 import dagger.Provides
@@ -46,5 +47,11 @@ object AppModule {
     @Singleton
     fun provideGetCountdownTickUseCase(): GetCountdownTickUseCase {
         return GetCountdownTickUseCase()
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetTeamSquadUseCase(repository: PlayerRepository): GetTeamSquadUseCase {
+        return GetTeamSquadUseCase(repository)
     }
 }

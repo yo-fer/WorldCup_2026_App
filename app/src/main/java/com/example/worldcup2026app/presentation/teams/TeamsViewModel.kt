@@ -28,12 +28,12 @@ class TeamsViewModel @Inject constructor(
     val state: StateFlow<TeamState> = _state.asStateFlow()
 
     init {
-        obserLocalDataBase()
+        observeLocalDataBase()
         syncWithApi()
         startCountdown()
     }
 
-    private fun obserLocalDataBase() {
+    private fun observeLocalDataBase() {
         viewModelScope.launch {
             // recoletamos el flujo del use state
             getTeamsUseCase().collect { localTeams ->

@@ -7,5 +7,6 @@ data class Team(
     val country: String,
     val foundedYear: Int?,
     val logoUrl: String,
+    val groupName: String,
     val venue: Venue
 )

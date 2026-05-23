@@ -1,5 +1,6 @@
 package com.example.worldcup2026app.data.mapper
 
+import com.example.worldcup2026app.core.utils.WorldCupData
 import com.example.worldcup2026app.data.local.entity.PlayerEntity
 import com.example.worldcup2026app.data.local.entity.TeamEntity
 import com.example.worldcup2026app.data.local.entity.VenueEntity
@@ -18,6 +19,7 @@ fun TeamResponseDto.toEntity(): TeamEntity {
         country = this.team.country,
         foundedYear = this.team.founded,
         logoUrl = this.team.logoUrl,
+        groupName = WorldCupData.getGroupForTeam(this.team.id),
 
         venue = VenueEntity(
             venueId = this.venue.id,
@@ -52,6 +54,7 @@ fun TeamEntity.toDomain(): Team {
         country = this.country,
         foundedYear = this.foundedYear,
         logoUrl = this.logoUrl,
+        groupName = this.groupName,
         venue = Venue(
             id = this.venue.venueId,
             name = this.venue.venueName,

@@ -7,7 +7,7 @@ import com.example.worldcup2026app.domain.model.Team
 // representación de lo que puede pasar en la pantalla de equipos
 data class TeamState(
     val isLoading: Boolean = false,
-    val teams: List<Team> = emptyList(),
+    val teams: Map<String, List<Team>> = emptyMap(),
     val error: UiText? = null,
     val countdown: Countdown?= null
 )

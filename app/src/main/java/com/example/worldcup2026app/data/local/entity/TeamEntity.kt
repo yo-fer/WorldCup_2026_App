@@ -12,6 +12,7 @@ data class TeamEntity(
     val country: String,
     val foundedYear: Int?,
     val logoUrl: String,
+    val groupName: String,
 
     @Embedded(prefix = "venue_")
     val venue: VenueEntity

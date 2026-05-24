@@ -5,4 +5,12 @@
     <string name="error_connectivity">Error de conectividad. Verifica tu conexión a internet.</string>
     <string name="error_server">Error del servidor (Código %1$d). Intenta más tarde.</string>
     <string name="error_unknown">Ocurrió un error inesperado: %1$s</string>
+
+    <!-- Textos del Temporizador -->
+    <string name="countdown_title">El Mundial comienza en:</string>
+    <string name="countdown_days">DÍAS</string>
+    <string name="countdown_hours">HR</string>
+    <string name="countdown_minutes">MIN</string>
+    <string name="countdown_seconds">SEG</string>
+    <string name="countdown_finished">¡El Mundial ha comenzado!</string>
 </resources>

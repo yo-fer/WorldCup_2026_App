@@ -6,4 +6,12 @@
     <string name="error_connectivity">Connectivity error. Please check your internet connection.</string>
     <string name="error_server">Server error (Code %1$d). Please try again later.</string>
     <string name="error_unknown">An unexpected error occurred: %1$s</string>
+
+    <!-- Countdown Texts -->
+    <string name="countdown_title">World Cup starts in:</string>
+    <string name="countdown_days">DAYS</string>
+    <string name="countdown_hours">HR</string>
+    <string name="countdown_minutes">MIN</string>
+    <string name="countdown_seconds">SEC</string>
+    <string name="countdown_finished">The World Cup has started!</string>
 </resources>

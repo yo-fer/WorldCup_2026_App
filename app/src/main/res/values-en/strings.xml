@@ -14,4 +14,8 @@
     <string name="countdown_minutes">MIN</string>
     <string name="countdown_seconds">SEC</string>
     <string name="countdown_finished">The World Cup has started!</string>
+
+    <!-- Team Texts -->
+    <string name="team_flag_cd">Flag of %1$s</string>
+    <string name="team_founded">Est. %1$d</string>
 </resources>

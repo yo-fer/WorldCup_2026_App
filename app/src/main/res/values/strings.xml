@@ -13,4 +13,8 @@
     <string name="countdown_minutes">MIN</string>
     <string name="countdown_seconds">SEG</string>
     <string name="countdown_finished">¡El Mundial ha comenzado!</string>
+
+    <!-- Textos de Equipos -->
+    <string name="team_flag_cd">Bandera de %1$s</string>
+    <string name="team_founded">Est. %1$d</string>
 </resources>
